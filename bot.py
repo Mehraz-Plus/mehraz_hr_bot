@@ -60,14 +60,17 @@ async def send_cv(event):
 
 @bot.on(events.CallbackQuery(pattern=b'start_soft_interview'))
 async def start_soft_interview(event):
-    links = f"""coming soon"""
+    links = f"[{msg.get('mbti')}](https://mehrazplus.com/?p=14529)\n\n" + \
+            f"[{msg.get('emotional_intelligence')}](https://mehrazplus.com/?p=14430)\n\n" + \
+            f"[{msg.get('gardner')}](https://mehrazplus.com/?p=14536)\n\n" + \
+            f"[{msg.get('msq')}](https://mehrazplus.com/?p=14584)\n"
     await event.respond(links)
     raise events.StopPropagation
 
 
 @bot.on(events.CallbackQuery(pattern=b'start_technical_interview'))
 async def start_technical_interview(event):
-    links = f"""coming soon"""
+    links = f"[{msg.get('web_content_creator_junior')}](https://mehrazplus.com/wp-content/uploads/2025/05/technical_interview_web_content_creator_junior.pdf)\n"
     await event.respond(links)
     raise events.StopPropagation
 

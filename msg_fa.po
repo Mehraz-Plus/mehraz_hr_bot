@@ -22,5 +22,20 @@ msgstr "مصاحبه‌ی عمومی"
 msgid "start_technical_interview"
 msgstr "مصاحبه‌ی فنی"
 
+msgid "mbti"
+msgstr "تست مایرز بریگز"
+
+msgid "emotional_intelligence"
+msgstr "تست هوش هیجانی"
+
+msgid "gardner"
+msgstr "تست هوش چندگانه‌ی گاردنر"
+
+msgid "msq"
+msgstr "تست رضایت شغلی مینه سوتا"
+
+msgid "web_content_creator_junior"
+msgstr "کارشناس محتوای وب - تازه‌کار"
+
 msgid ""
 msgstr ""
