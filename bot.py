@@ -1,6 +1,7 @@
 from telethon import TelegramClient, events
 from telethon.tl.types import PeerUser
 from env import env
+import helper
 from mongo import Mongo
 import polib
 import os
@@ -34,8 +35,9 @@ else:
 
 @bot.on(events.NewMessage(pattern='/start', incoming=True))
 async def start(event):
-    welcome_msg = f"{msg.get('welcome')}.\n\n{msg.get('info')}.\n\n{msg.get('ready_to_receive')}"
-    await event.respond(welcome_msg)
+    welcome_msg = f"{msg.get('welcome')}.\n\n{msg.get('info')}.\n"
+    welcome_buttons = helper.get_start_buttons(msg, config)
+    await event.respond(welcome_msg, buttons=welcome_buttons)
     raise events.StopPropagation
 
 
@@ -50,20 +52,7 @@ async def forward_to_admin(event):
     raise events.StopPropagation
 
 
-#@bot.on(events.NewMessage(func=lambda e: e.media))
-async def handle_media(event):
-    try:
-        sender = await event.get_sender()
-        name = sender.username or sender.id
 
-        # Generate file path
-        file_path = os.path.join('DOWNLOAD_DIR', f"{event.id}") # TODO CHANGE
-
-        # Save the media
-        saved_path = await event.download_media(file_path)
-        await event.reply(f"✅ File saved to `{saved_path}`.")
-    except Exception as e:
-        await event.reply(f"⚠️ Failed to save file: {e}")
 
 
 # Connect to Telegram and run in a loop
