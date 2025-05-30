@@ -52,7 +52,24 @@ async def forward_to_admin(event):
     raise events.StopPropagation
 
 
+@bot.on(events.CallbackQuery(pattern=b'send_cv'))
+async def send_cv(event):
+    await event.respond(msg.get('ready_to_receive_cv'))
+    raise events.StopPropagation
 
+
+@bot.on(events.CallbackQuery(pattern=b'start_soft_interview'))
+async def start_soft_interview(event):
+    links = f"""coming soon"""
+    await event.respond(links)
+    raise events.StopPropagation
+
+
+@bot.on(events.CallbackQuery(pattern=b'start_technical_interview'))
+async def start_technical_interview(event):
+    links = f"""coming soon"""
+    await event.respond(links)
+    raise events.StopPropagation
 
 
 # Connect to Telegram and run in a loop
